@@ -1,0 +1,15 @@
+finger.js
+a simple to use JS Synth
+==================================
+
+this is not a final thing.
+inspired by figure (ios app) and a presentation of cloudtracker 2.0 by halfbyte
+i wanted to create a little JS sound experiment
+target: creating a simple to use sound app like the figure-app by propellerheads
+
+so i started and programmed this little tool in a short night.
+after some webkit sound/webaudio research, i found this nice JS synth lib on github:
+	https://github.com/colinbdclark/Flocking
+
+so this is the first try.
+

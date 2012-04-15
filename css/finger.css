@@ -1,0 +1,22 @@
+body {
+	background-color: #000;
+	color: #ccc;
+	font-family: sans-serif;
+}
+.finger-pad {
+	display: inline-block;
+	width: 500px;
+	height: 300px;
+	margin: 1em;
+	background-color: #A534D1;
+}
+
+.finger-pos-shower {
+	display: none;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background-color: #fff;
+	opacity: 0.5;
+	border-radius: 10px;
+}

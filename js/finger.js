@@ -42,12 +42,14 @@ FingerJS.prototype.fingerPadInit = function() {
 		$el.append(posShower);
 		
 		$el.on('mousedown', function(ev) {
+			FingerJS.normalizeEventOffset(ev);
 			fjsObj.fingerPadStartSound($el, ev.offsetX, ev.offsetY);
 		});
 		$el.on('mouseup', function(ev) {
 			fjsObj.fingerPadStopSound($el);
 		});
 		$el.on('mousemove', function(ev) {
+			FingerJS.normalizeEventOffset(ev);
 			fjsObj.fingerPadMoveCursor($el, ev.offsetX, ev.offsetY);
 		});
 	});
@@ -110,3 +112,16 @@ FingerJS.prototype.fingerPadMoveCursor = function($el, x, y) {
 	$el.data('synth').input(fjsObj.fingerPadGetSynthModId('carrier',$el) + ".freq", playFreqPlay);
 	$el.data('synth').input(fjsObj.fingerPadGetSynthModId('mod', $el) + ".freq", modFreqPlay);
 }
+
+/**
+ * Normalizes the event offsetX/offsetY properties across browsers, particularly for Firefox, which doesn't natively support them.
+ */
+FingerJS.normalizeEventOffset = function(ev) {
+	if (ev.offsetX === undefined) {
+		var offset = $(ev.target).offset();
+		ev.offsetX = ev.clientX - offset.left;
+		ev.offsetY = ev.clientY - offset.top;
+	}
+	return ev;
+};
+
